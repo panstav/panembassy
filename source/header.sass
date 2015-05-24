@@ -1,0 +1,70 @@
+header
+	position: absolute
+	width: 100%
+
+	background-color: $skin
+	color: white
+	padding:
+		top: .8em
+		bottom: .8em
+
+	@media (min-width: $maxWidth)
+		padding:
+			top: 1.5em
+			bottom: 1.5em
+
+	a
+		display: inline-block
+
+.role
+	font-weight: bold
+
+	img
+		width: 3.5em
+		height: auto
+	span
+		display: none
+		text-shadow: -1px 1px 2px #CA9B68
+
+	@media (min-width: $mobile)
+		padding:
+			top: .5em
+			bottom: .5em
+
+		span
+			display: inline-block
+		img
+			display: none
+
+.availability
+	float: right
+	margin-top: .9em
+	padding: .5em .7em
+	border: 2px solid white
+	border-radius: 5px
+	font-size: .8em
+
+	.full
+		display: none
+
+	@media (min-width: $mobile)
+		margin-top: 0.2em
+
+		.full
+			display: inline-block
+		.short
+			display: none
+
+	&:before
+		margin-right: .5em
+		display: inline-block
+
+	&.positive:before
+		content: ''
+		width: .8em
+		height: .8em
+		border-radius: 100%
+		background-color: #ABFFAB
+	&.negative:before
+		content: 'X'
+		color: #E75D5D

@@ -1,0 +1,58 @@
+section.hero
+	box-sizing: border-box
+	background-color: $skin
+	padding:
+		top: 5em
+		bottom: 3em
+	font-size: 1.3em
+
+	.logo
+		display: none
+		margin: 0 auto 2em
+
+		@media (min-width: $mobile)
+			display: block
+
+	h2, h3
+		text-align: center
+		font-weight: bold
+		color: white
+
+	h2
+		font-size: 1.5em
+		margin: .5em
+	h3
+		font-size: 2em
+		margin: .3em
+
+	p
+		text-align: center
+		line-height: 1.5
+		margin-top: 2.2em
+
+	b
+		padding:
+			right: 0.3em
+			left: 0.3em
+		font-size: 1.15em
+
+	@media (min-width: 700px)
+
+		@media (max-height: 1200px)
+
+			@media (min-height: 38em)
+				height: 100vh
+
+				.logo
+					margin-top: 5vh
+
+			@media (min-height: 50em)
+
+				.logo
+					margin-top: 20vh
+
+		@media (min-height: 1201px)
+			height: 1200px
+
+			.logo
+				margin-top: 300px

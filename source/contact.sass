@@ -1,0 +1,90 @@
+section.contact
+	background-color: $mustard
+	padding-bottom: 3em
+
+	.inner
+		padding-top: 3em
+
+	form
+		background-color: #FFFED4
+		padding: 2em
+
+		border: solid #FDE68D
+		border-width: 1px 1px 0
+
+		-webkit-border-top-left-radius: 5px
+		-webkit-border-top-right-radius: 5px
+		-moz-border-radius-topleft: 5px
+		-moz-border-radius-topright: 5px
+		border-top-left-radius: 5px
+		border-top-right-radius: 5px
+
+		h2
+			text-align: center
+			font-size: 2.5em
+			margin-bottom: 1.2em
+
+		.name, .email, .message
+			margin-bottom: 2.5em
+
+		label
+			display: block
+			font-size: 1.5em
+			margin-bottom: .5em
+
+		input, textarea
+			box-sizing: border-box
+			display: block
+
+			width: 100%
+			padding: .5em .8em
+			font-size: 1.25em
+
+		input
+			max-width: 20em
+
+		textarea
+			height: 8em
+			max-height: 12em
+
+		.required
+			display: none
+			margin-top: 1em
+			line-height: 1.8
+
+			color: #E84E40
+			font:
+				family: monospace
+				weight: bold
+				size: 0.9em
+
+			&.show
+				display: block
+
+		@media (min-width: $mobile)
+			font-size: .8em
+
+		@media (min-width: $desktop)
+			h2
+				text-align: left
+
+			.name
+				float: left
+				width: 35%
+
+			.email
+				float: right
+				width: 50%
+
+				input
+					max-width: none
+
+			.message
+				clear: both
+
+		.submit
+			height: 4em
+			text-align: right
+
+			button
+				margin-right: 0

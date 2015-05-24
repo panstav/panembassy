@@ -1,0 +1,47 @@
+@mixin overlay
+	position: fixed
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+	width: 100%
+	height: 100%
+
+.overlay
+	@include overlay
+	transition: opacity .3s ease, z-index .3s ease
+	z-index: $beneath-z
+	opacity: 0
+
+	text-align: center
+
+	img
+		display: block
+		width: 50vh
+		max-width: 500px
+		margin: 5vh auto
+
+		@media (min-height: 600px)
+			margin-top: 20vh
+
+	span
+		display: block
+		padding: 0 15px
+		font-size: 2em
+
+		font-weight: bold
+		color: #D2FFD2
+
+		&.great
+			font-size: 5em
+
+		@media (min-width: $mobile) and (min-height: $mobile)
+			font-size: 2.5em
+
+
+	&.show
+		z-index: $overlay-z
+		opacity: 1
+
+	&.success
+		background-color: rgba(0, 128, 0, 0.95)

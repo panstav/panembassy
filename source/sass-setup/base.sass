@@ -1,0 +1,25 @@
+@import "button"
+@import "overlay"
+
+body
+	color: #563F27
+
+	font-family: 'Maven Pro', sans-serif
+	font-size: 12px
+
+	@media (min-width: $mobile)
+		font-size: 16px
+
+header, section
+	> .inner
+		max-width: $maxWidth
+		margin: auto
+		padding:
+			right: 1.5rem
+			left: 1.5rem
+
+p
+	margin: 0
+
+a, a:link, a:visited, a:hover, a:active, a:focus
+	color: inherit

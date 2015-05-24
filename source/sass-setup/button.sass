@@ -1,0 +1,82 @@
+@mixin playSilent($color)
+	&:not(.silent)
+		background-color: $color
+		border-color: darken($color, 10%)
+
+	&.confirm, &.growth
+		color: #F2F2F2
+
+	&:hover, &.silent:hover
+		background-color: darken($color, 5%)
+		border-color: darken($color, 15%)
+
+		&.confirm, &.growth
+			color: white
+
+	&:active
+		background-color: darken($color, 10%)
+
+@mixin button
+	transition: margin-top .1s ease, border-bottom-width .1s ease, background-color .3s ease
+
+	cursor: pointer
+	display: inline-block
+
+	padding: .3em .7em
+	margin-top: 0px
+
+	border-radius: 2px
+
+	border-bottom: 3px solid #CECECE
+	background-color: #E7E7E7
+
+	font-size: 1rem
+	text-decoration: none
+	color: #070707
+
+	&:hover
+		background-color: #F1F1F1
+		border-bottom-width: 1px
+		margin-top: 2px
+
+	&.silent
+		background-color: transparent
+		border-color: transparent
+
+		&:hover
+			background-color: #E7E7E7
+			border-color: transparent
+
+		&:active
+			background-color: darken(white, 3%)
+			border-color: transparent
+
+	&.big
+		border-radius: 3px
+
+		padding: .5rem 1.5rem
+		font-size: 1.35rem
+		color: #272727
+
+	&.small
+		font-size: .8rem
+
+	&.tiny
+		font-size: .75rem
+		padding: .1em .7em
+
+	&.spread
+		@media (max-width: $mobile - 1px)
+			width: 100%
+
+	&.confirm
+		@include playSilent(#798ca3)
+
+	&.growth
+		@include playSilent(#73dc73)
+
+	&.warn
+		@include playSilent(#f3462f)
+
+button, a.button
+	@include button
