@@ -3,7 +3,13 @@
 
 	function dev_greeting(){
 		console.log('Hello there, savvy friend!');
-	}
+	};
+
+	function hire_button_handler(){
+		document.querySelector('a.availability').addEventListener('click', function(){
+			document.querySelector('section.contact').scrollIntoView();
+		});
+	};
 
 	function form_handler(){
 
@@ -46,7 +52,7 @@
 
 		return valid;
 
-	}
+	};
 
 	function contact_form_submission(){
 
@@ -86,6 +92,8 @@
 
 	window.addEventListener('load', function(){
 		dev_greeting();
+
+		hire_button_handler();
 
 		form_handler();
 	});
