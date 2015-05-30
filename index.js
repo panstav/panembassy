@@ -8,8 +8,6 @@ var app =                 express();
 var bodyParser =          require('body-parser');
 var compression =         require('compression');
 
-var contactFormHandler =  require('./contact-form-handler');
-
 //-=======================================================---
 //------------------ Setup
 //-=======================================================---
@@ -30,7 +28,7 @@ app.use(compression());
 //------------------ Iftah Ya Simsim
 //-=======================================================---
 
-app.post('/contact', contactFormHandler);
+app.post('/api/contact', require('./contact-form-handler'));
 
 app.use(express.static('public', { maxAge: process.env.LOCAL ? 0 : 1000 * 60 * 60 * 24 * 10 }));
 

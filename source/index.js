@@ -58,11 +58,9 @@
 
 		if (contact_form_validation(fields)){
 
-			var xhr = new XMLHttpRequest();
+			function xhrCallback(){
 
-			function xhrCallback(res){
-
-				var overlay = document.querySelector('.overlay' + (res.target.status === 200 ? '.success' : '.failure'));
+				var overlay = document.querySelector('.overlay');
 
 				myapp.addClass('show').to(overlay);
 
@@ -76,8 +74,9 @@
 
 			}
 
+			var xhr = new XMLHttpRequest();
 			xhr.addEventListener("load", xhrCallback, false);
-			xhr.open("POST", "/contact");
+			xhr.open("POST", "/api/contact");
 			xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 			xhr.send(JSON.stringify(fields));
 
