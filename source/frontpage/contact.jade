@@ -1,0 +1,36 @@
+section.contact
+	.inner
+
+		form
+
+			h2 Lets exchange!
+
+			.name
+				label(for="name") * Your name:
+				input(
+				id="name"
+				type="text"
+				)
+
+				span.required
+					|A name is kind of important. Make one up if you don't want to give your real name.
+
+			.email
+				label(for="email") * Email:
+				input(
+				id="email"
+				type="text"
+				)
+
+				span.required
+					|An email is definitely required, otherwise i'd have no way to contact you back.
+
+			.message
+				label(for="message") What can I do for you?
+				textarea(
+				id="message"
+				)
+
+			.submit
+				button.big.spread.confirm Send Message
+
