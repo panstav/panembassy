@@ -14,8 +14,9 @@ module.exports = function(req, res){
 				query: {
 					token: process.env.TODOIST_APIKEY,
 					content: req.body.name + ' <' + req.body.email + '>',
-					project_id: 144693609,
-					date_string: 'tomorrow',
+					project_id: 108223026,
+					date_string: 'today',
+					priority: 2,
 					note: req.body.message || 'No message attached.'
 				}
 			}
