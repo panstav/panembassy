@@ -49,9 +49,7 @@ gulp.task('compileSass', function(){
 
 gulp.task('compileJade', function(){
 
-	var jadeOptions = process.env.LOCAL ?
-	                  { pretty: true } :
-	                  {};
+	var jadeOptions = { pretty: !!process.env.LOCAL };
 
 	var resources = {
 		css:  'stylesheets/styles' + (process.env.LOCAL ? '' : '-' + revision) + '.css',
