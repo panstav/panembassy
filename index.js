@@ -28,6 +28,10 @@ app.use(compression());
 //------------------ Iftah Ya Simsim
 //-=======================================================---
 
+app.get('/robots.txt', function(req, res){
+	res.sendFile('robots.txt', { root: './', maxAge: 0 });
+});
+
 app.get('/', function(req, res){
 	res.sendFile('partials/index.html', { root: 'public', maxAge: 0 });
 });
