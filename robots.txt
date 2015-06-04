@@ -1,3 +1,4 @@
 User-Agent: *
 Allow: /
 Disallow:
+Sitemap: http://www.panembassy.com/sitemap.xml
