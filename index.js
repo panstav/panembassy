@@ -33,7 +33,7 @@ app.get('/robots.txt', function(req, res){
 });
 
 app.get('/', function(req, res){
-	res.sendFile('partials/index.html', { root: 'public', maxAge: 0 });
+	res.sendFile('index.html', { root: 'public', maxAge: 0 });
 });
 
 app.post('/api/contact', require('./contact-form-handler'));

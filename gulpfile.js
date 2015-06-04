@@ -1,3 +1,5 @@
+var config = require('./config');
+
 var gulp =    require('gulp');
 var plugins = require('gulp-load-plugins')();
 
@@ -59,7 +61,7 @@ gulp.task('compileJade', function(){
 	return gulp.src('source/index.jade')
 		.pipe(plugins.jade(jadeOptions))
 		.pipe(plugins.htmlReplace(resources))
-		.pipe(gulp.dest('public/partials'));
+		.pipe(gulp.dest('public'));
 
 });
 
@@ -74,6 +76,26 @@ gulp.task('uglifyJs', function(){
 
 });
 
+gulp.task('sitemap', function(){
+
+	var sitemapOptions = {
+		siteUrl: config.domain,
+		mappings: [
+			{
+				pages: [ '/' ],
+				changefreq: 'weekly',
+				priority: 1,
+				lastmod: Date.now()
+			}
+		]
+	};
+
+	return gulp.src('public/**/*.html')
+		.pipe(plugins.sitemap(sitemapOptions))
+		.pipe(gulp.dest('./public'))
+
+});
+
 //-=======================================================---
 //------------------ Build Commands
 //-=======================================================---
@@ -82,4 +104,4 @@ gulp.task('build', ['uglifyJs', 'compileSass', 'compileJade']);
 
 gulp.task('local', ['defineLocal', 'build']);
 
-gulp.task('heroku', ['build']);
+gulp.task('heroku', ['build', 'sitemap']);
