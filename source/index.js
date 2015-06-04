@@ -6,8 +6,11 @@
 	};
 
 	function hire_button_handler(){
-		document.querySelector('a.availability').addEventListener('click', function(){
-			document.querySelector('section.contact').scrollIntoView();
+		var toggle = document.querySelector('a.availability');
+		var options = { speed: 500, easing: 'easeInOutCubic' };
+
+		toggle.addEventListener('click', function(){
+			smoothScroll.animateScroll( toggle, '#contact', options );
 		});
 	};
 

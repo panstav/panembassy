@@ -21,6 +21,12 @@ var jsSources = [
 //------------------ Executables
 //-=======================================================---
 
+gulp.task('ver-sync', function(){
+	gulp.src(['./bower.json', './package.json'])
+		.pipe(plugins.bump({ version: config.version }))
+		.pipe(gulp.dest('./'));
+});
+
 gulp.task('nodemon', ['local'], function(){
 	return plugins.nodemon(
 		{
@@ -55,8 +61,16 @@ gulp.task('compileJade', function(){
 	var jadeOptions = { pretty: !!process.env.LOCAL };
 
 	var resources = {
-		css:  'stylesheets/styles' + (process.env.LOCAL ? '' : '-' + revision) + '.css',
-		js:   'scripts/scripts' + (process.env.LOCAL ? '' : '-' + revision) + '.js'
+
+		css:  [
+			'stylesheets/styles' + (process.env.LOCAL ? '' : '-' + revision) + '.css'
+		],
+
+		js:   [
+			'components/smooth-scroll/dist/js/smooth-scroll.min.js',
+			'scripts/scripts' + (process.env.LOCAL ? '' : '-' + revision) + '.js'
+		]
+
 	};
 
 	return gulp.src('source/index.jade')
@@ -109,6 +123,6 @@ gulp.task('local', function(){
 	runSeq('defineLocal', 'build');
 });
 
-gulp.task('heroku', function(){
+gulp.task('heroku:production', function(){
 	runSeq('build', 'sitemap');
 });
