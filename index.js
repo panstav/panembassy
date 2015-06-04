@@ -28,6 +28,10 @@ app.use(compression());
 //------------------ Iftah Ya Simsim
 //-=======================================================---
 
+app.get('/', function(req, res){
+	res.sendFile('partials/index.html', { root: 'public', maxAge: 0 });
+});
+
 app.post('/api/contact', require('./contact-form-handler'));
 
 app.use(express.static('public', { maxAge: process.env.LOCAL ? 0 : 1000 * 60 * 60 * 24 * 10 }));
@@ -41,7 +45,7 @@ app.use(function(req, res){
 
 	// respond with html page
 	if (req.accepts('html')){
-		res.sendFile('partials/index.html', { root: 'public', maxAge: 0 });
+		res.redirect('/');
 
 		return;
 	}
