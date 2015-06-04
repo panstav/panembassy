@@ -2,6 +2,7 @@ var config = require('./config');
 
 var gulp =    require('gulp');
 var plugins = require('gulp-load-plugins')();
+var runSeq = require('run-sequence');
 
 var shortid = require('shortid');
 
@@ -100,8 +101,14 @@ gulp.task('sitemap', function(){
 //------------------ Build Commands
 //-=======================================================---
 
-gulp.task('build', ['uglifyJs', 'compileSass', 'compileJade']);
+gulp.task('build', function(done){
+	runSeq('uglifyJs', 'compileSass', 'compileJade', done);
+});
 
-gulp.task('local', ['defineLocal', 'build']);
+gulp.task('local', function(){
+	runSeq('defineLocal', 'build');
+});
 
-gulp.task('heroku', ['build', 'sitemap']);
+gulp.task('heroku', function(){
+	runSeq('build', 'sitemap');
+});
