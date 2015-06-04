@@ -7,10 +7,9 @@
 
 	function hire_button_handler(){
 		var toggle = document.querySelector('a.availability');
-		var options = { speed: 500, easing: 'easeInOutCubic' };
 
 		toggle.addEventListener('click', function(){
-			smoothScroll.animateScroll( toggle, '#contact', options );
+			myapp.scrollToId('#contact');
 		});
 	};
 
@@ -76,7 +75,7 @@
 				document.querySelector('form').reset();
 
 				setTimeout(function(){
-					window.scroll(0, 0);
+					myapp.scrollToId('#');
 
 					myapp.removeClass('show').from(overlay);
 				}, 2000);

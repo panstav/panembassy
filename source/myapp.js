@@ -32,6 +32,13 @@ var myapp = {
 			}
 		};
 
+	},
+
+	scrollToId: function(id){
+		smoothScroll.animateScroll(null, id, {
+			speed: 500,
+			easing: 'easeInOutCubic'
+		});
 	}
 
 };
