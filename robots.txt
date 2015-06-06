@@ -1,4 +1,4 @@
 User-Agent: *
 Allow: /
-Disallow:
+Disallow: /components/
 Sitemap: http://www.panembassy.com/sitemap.xml

@@ -105,7 +105,7 @@ gulp.task('sitemap', function(){
 		]
 	};
 
-	return gulp.src('public/**/*.html')
+	return gulp.src(['public/**/*.html', '!public/components/**'])
 		.pipe(plugins.sitemap(sitemapOptions))
 		.pipe(gulp.dest('./public'))
 
