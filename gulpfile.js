@@ -21,12 +21,6 @@ var jsSources = [
 //------------------ Executables
 //-=======================================================---
 
-gulp.task('ver-sync', function(){
-	gulp.src(['./bower.json', './package.json'])
-		.pipe(plugins.bump({ version: config.version }))
-		.pipe(gulp.dest('./'));
-});
-
 gulp.task('nodemon', ['local'], function(){
 	return plugins.nodemon(
 		{
