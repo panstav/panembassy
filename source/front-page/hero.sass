@@ -1,12 +1,23 @@
 section.hero
 	box-sizing: border-box
-	background-color: $skin
+
+	//background-color: rgba($mainBackground, .5)
+	background:
+		image: url('/graphics/hero.jpg')
+		repeat: no-repeat
+		position: center
+		size: cover
+		
 	padding-bottom: 3em
-	font-size: 1.3em
 
 	.logo
 		display: none
-		margin: 0 auto 2em
+		width: 150px
+		margin: auto
+		padding: 15px
+
+		border-radius: 20%
+		background-color: rgba(white, 0.5)
 
 		@media (min-width: $mobile)
 			display: block
@@ -26,7 +37,8 @@ section.hero
 	p
 		text-align: center
 		line-height: 1.5
-		margin-top: 2.2em
+		margin-top: 1.5em
+		font-size: 1.2em
 
 	b
 		padding:
@@ -36,21 +48,12 @@ section.hero
 
 	@media (min-width: 700px)
 
-		@media (max-height: 1200px)
+		@media (min-height: 40rem)
+			.logo
+				margin: 7vh auto
 
-			@media (min-height: 38em)
-				height: 100vh
-
-				.logo
-					margin-top: 5vh
-
-			@media (min-height: 50em)
-
-				.logo
-					margin-top: 20vh
-
+		@media (min-height: 40rem) and (max-height: 1200px)
+			height: 100vh
+				
 		@media (min-height: 1201px)
 			height: 1200px
-
-			.logo
-				margin-top: 300px

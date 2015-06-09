@@ -2,21 +2,21 @@ header
 	position: absolute
 	width: 100%
 
-	background-color: $skin
+	background-color: rgba($mainBackground, .5)
 	color: white
 	padding:
-		top: .8em
-		bottom: .8em
+		top: .5em
+		bottom: .5em
 
 	@media (min-width: $maxWidth)
 		padding:
-			top: 1.5em
-			bottom: 1.5em
+			top: 1em
+			bottom: 1em
 
 	a
 		display: inline-block
 
-.home
+a.home
 	font-weight: bold
 
 	img.logo
@@ -24,6 +24,7 @@ header
 		height: auto
 	img.signature
 		display: none
+		margin-top: .3em
 		text-shadow: -1px 1px 2px #CA9B68
 
 	@media (min-width: $mobile)
@@ -35,17 +36,17 @@ header
 
 	@media (min-width: $mobile) and (max-width: 549px)
 		width: 127px
-		padding: 6px 0 0
 
 	@media (min-width: 550px)
-		padding: 0
+		img.signature
+			margin-top: .1em
 
 .availability
 	cursor: pointer
 	float: right
 	margin-top: .9em
 	padding: .5em .7em
-	border: 2px solid white
+	border: 1px solid white
 	border-radius: 5px
 	font-size: .8em
 
@@ -53,7 +54,7 @@ header
 		display: none
 
 	@media (min-width: $mobile)
-		margin-top: 0.2em
+		margin-top: 0
 
 		.full
 			display: inline-block

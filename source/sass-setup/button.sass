@@ -3,15 +3,9 @@
 		background-color: $color
 		border-color: darken($color, 10%)
 
-	&.confirm, &.growth
-		color: #F2F2F2
-
 	&:hover, &.silent:hover
 		background-color: darken($color, 5%)
 		border-color: darken($color, 15%)
-
-		&.confirm, &.growth
-			color: white
 
 	&:active
 		background-color: darken($color, 10%)
@@ -69,14 +63,20 @@
 		@media (max-width: $mobile - 1px)
 			width: 100%
 
+	&.confirm, &.growth
+		color: #F2F2F2
+
+		&:hover
+			color: white
+
 	&.confirm
-		@include playSilent(#798ca3)
+		@include playSilent($confirm)
 
 	&.growth
-		@include playSilent(#73dc73)
+		@include playSilent($growth)
 
 	&.warn
-		@include playSilent(#f3462f)
+		@include playSilent($warning)
 
 button, a.button
 	@include button
