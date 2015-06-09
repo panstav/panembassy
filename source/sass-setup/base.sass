@@ -2,24 +2,35 @@
 @import "overlay"
 
 body
-	color: #563F27
+	color: $baseTextColor
 
 	font-family: 'Maven Pro', sans-serif
-	font-size: 12px
+	font-size: 14px
 
-	@media (min-width: $mobile)
-		font-size: 16px
+	@media (min-width: $mobile) and (max-width: $desktop - 1px)
+		font-size: 18px
+
+	@media (min-width: $desktop)
+		font-size: 22px
+
+	> section:first-of-type
+		padding-top: 5em
 
 header, section
 	> .inner
-		max-width: $maxWidth
 		margin: auto
 		padding:
-			right: 1.5rem
-			left: 1.5rem
+			right: 2rem
+			left: 2rem
+
+section .inner
+	max-width: $maxWidth
 
 p
 	margin: 0
 
 a, a:link, a:visited, a:hover, a:active, a:focus
 	color: inherit
+
+	&.silent
+		text-decoration: none

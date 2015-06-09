@@ -9,7 +9,13 @@
 		var toggle = document.querySelector('a.availability');
 
 		toggle.addEventListener('click', function(){
-			myapp.scrollToId('#contact');
+
+			if (window.location.pathname === '/'){
+				myapp.scrollToId('#contact');
+
+			} else {
+				window.location.href = '/#contact'
+			}
 		});
 	};
 
@@ -93,11 +99,15 @@
 	};
 
 	window.addEventListener('load', function(){
-		dev_greeting();
 
+		// all pages
+		dev_greeting();
 		hire_button_handler();
 
-		form_handler();
+		// front-page
+		if (window.location.pathname === '/'){
+			form_handler();
+		}
 	});
 
 })();

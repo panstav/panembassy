@@ -3,7 +3,6 @@ html(lang="en")
 	head
 
 		block variables
-			include config
 
 		meta(charset="utf-8")
 		meta(name="viewport", content="width=device-width")
@@ -24,6 +23,7 @@ html(lang="en")
 
 	body
 
-		include frontpage/index
+		include header
+		block content
 
 		include overlays

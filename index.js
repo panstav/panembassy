@@ -36,6 +36,10 @@ app.get('/', function(req, res){
 	res.sendFile('index.html', { root: 'public', maxAge: 0 });
 });
 
+app.get('/about-me', function(req, res){
+	res.sendFile('about-me.html', { root: 'public', maxAge: 0 });
+});
+
 app.post('/api/contact', require('./contact-form-handler'));
 
 app.use(express.static('public', { maxAge: process.env.LOCAL ? 0 : 1000 * 60 * 60 * 24 * 10 }));
