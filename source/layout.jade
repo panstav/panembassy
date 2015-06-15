@@ -1,5 +1,6 @@
 doctype html
 html(lang="en")
+
 	head
 
 		block variables
@@ -21,9 +22,12 @@ html(lang="en")
 		script
 			include google-analytics.js
 
-	body
+	body(class="#{bodyClasses}")
 
 		include header
+
 		block content
+
+		include footer
 
 		include overlays

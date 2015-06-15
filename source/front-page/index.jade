@@ -1,7 +1,11 @@
 extends ../layout
 
 block variables
-	include config
+	- var bodyClasses = 'front'
+	- var pageTitle = 'Stav Pan Geffen - Web Freelancer'
+	- var pageDescription = 'Bridging the gap between administrative needs and contemporary web solutions.'
+	- var slug = ''
+	- var pageImage = 'https://s3.eu-central-1.amazonaws.com/panembassy/graphics/sandal.png'
 
 block content
 	include hero

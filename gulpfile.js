@@ -67,7 +67,7 @@ gulp.task('compileJade', function(){
 
 	};
 
-	return gulp.src('source/*/index.jade')
+	return gulp.src(['source/*/index.jade', '!source/about/index.jade'])
 		.pipe(plugins.rename(function(path){ path.basename = path.dirname === 'front-page' ? 'index' : path.dirname; }))
 		.pipe(plugins.jade(jadeOptions))
 		.pipe(plugins.rename(function(path){ path.dirname = '.' }))

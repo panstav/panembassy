@@ -1,4 +1,5 @@
 header
+
 	position: absolute
 	width: 100%
 
@@ -8,6 +9,10 @@ header
 		top: .5em
 		bottom: .5em
 
+	body:not(.front) &
+		background-color: rgba($mainBackground, .97)
+		border-bottom: 2px solid darken($mainBackground, 10%)
+
 	@media (min-width: $maxWidth)
 		padding:
 			top: 1em
@@ -16,30 +21,25 @@ header
 	a
 		display: inline-block
 
+a.home, a.home span
+	vertical-align: middle
+
 a.home
 	font-weight: bold
+	text-decoration: none
 
 	img.logo
 		width: 3.5em
 		height: auto
-	img.signature
+	span
 		display: none
-		margin-top: .3em
-		text-shadow: -1px 1px 2px #CA9B68
 
 	@media (min-width: $mobile)
 		img.logo
 			display: none
-		img.signature
+		span
 			display: inline-block
 			width: 100%
-
-	@media (min-width: $mobile) and (max-width: 549px)
-		width: 127px
-
-	@media (min-width: 550px)
-		img.signature
-			margin-top: .1em
 
 .availability
 	cursor: pointer

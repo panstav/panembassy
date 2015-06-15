@@ -2,6 +2,7 @@
 @import "overlay"
 
 body
+	background-color: #F5F5F5
 	color: $mainText
 
 	font-family: 'Maven Pro', sans-serif
@@ -16,15 +17,21 @@ body
 	> section:first-of-type
 		padding-top: 5em
 
-header, section
+header, section, footer
 	> .inner
 		margin: auto
 		padding:
 			right: 2rem
 			left: 2rem
 
-section .inner
-	max-width: $maxWidth
+		&:not(.full)
+			max-width: $desktop
+
+header > .inner
+	@media (max-width: 549px)
+		padding:
+			right: 1rem
+			left: 1rem
 
 p
 	margin: 0
@@ -34,3 +41,5 @@ a, a:link, a:visited, a:hover, a:active, a:focus
 
 	&.silent
 		text-decoration: none
+	&.silent:hover
+		text-decoration: underline

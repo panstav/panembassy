@@ -1,0 +1,14 @@
+extends ../layout
+
+block variables
+	- var bodyClasses = 'about'
+	- var pageTitle = 'About'
+	- var pageDescription = 'To an extent - this could* give you an idea of how it is to work with me. Though I always recommend a first-hand experience.'
+	- var slug = 'about'
+	- var pageImage = 'http://s3.eu-central-1.amazonaws.com/panembassy/graphics/sandal.png'
+
+block content
+	include bio
+	include why-me
+
+

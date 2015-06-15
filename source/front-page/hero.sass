@@ -1,14 +1,24 @@
 section.hero
 	box-sizing: border-box
 
-	//background-color: rgba($mainBackground, .5)
 	background:
-		image: url('/graphics/hero.jpg')
+		image: url('http://s3.eu-central-1.amazonaws.com/panembassy/graphics/hero.jpg')
+		color: #769083
 		repeat: no-repeat
 		position: center
 		size: cover
 		
 	padding-bottom: 3em
+
+	.inner
+		padding:
+			top: 4em
+			bottom: 2em
+
+		@media (min-width: $mobile)
+			padding:
+				top: 0
+				bottom: 0
 
 	.logo
 		display: none
@@ -29,10 +39,10 @@ section.hero
 
 	h2
 		font-size: 1.5em
-		margin: .5em
+		margin: .5em 0
 	h3
 		font-size: 2em
-		margin: .3em
+		margin: .3em 0
 
 	p
 		text-align: center
