@@ -10,6 +10,8 @@
 
 		common.addEvent(toggle, 'click', function(){
 
+			ga('send', 'event', 'interactions', 'clicked-hire-button');
+
 			if (window.location.pathname === '/'){
 				common.scrollToId('#contact');
 
@@ -73,6 +75,8 @@
 		if (contact_form_validation(fields)){
 
 			function xhrCallback(){
+
+				ga('send', 'event', 'interactions', 'contact-form-successful');
 
 				var overlay = document.querySelector('.overlay');
 
