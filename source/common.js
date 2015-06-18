@@ -1,5 +1,10 @@
 // namespace
-var myapp = {
+var common = {
+
+	addEvent: function addEvent(element, type, callback, capture) {
+		if (element.addEventListener) element.addEventListener(type, callback, capture);
+		else if (element.attachEvent) element.attachEvent('on' + type, callback);
+	},
 
 	addClass: function addClass(className){
 

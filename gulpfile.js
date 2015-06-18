@@ -13,7 +13,7 @@ var shortid = require('shortid');
 var revision = shortid.generate();
 
 var jsSources = [
-	'source/myapp.js',
+	'source/common.js',
 	'source/index.js'
 ];
 

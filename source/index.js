@@ -8,10 +8,10 @@
 	function hire_button_handler(){
 		var toggle = document.querySelector('a.availability');
 
-		toggle.addEventListener('click', function(){
+		common.addEvent(toggle, 'click', function(){
 
 			if (window.location.pathname === '/'){
-				myapp.scrollToId('#contact');
+				common.scrollToId('#contact');
 
 			} else {
 				window.location.href = '/#contact'
@@ -24,7 +24,7 @@
 		var form = document.querySelector('form');
 		var button = document.querySelector('form button');
 
-		button.addEventListener('click', function(e){
+		common.addEvent(button, 'click', function(e){
 			if (e.preventDefault) e.preventDefault();
 
 			contact_form_submission();
@@ -32,7 +32,7 @@
 			return false;
 		});
 
-		form.addEventListener('submit', function(e){
+		common.addEvent(form, 'submit', function(e){
 			if (e.preventDefault) e.preventDefault();
 
 			contact_form_submission();
@@ -49,9 +49,9 @@
 			if (!field){
 				valid = false;
 
-				myapp.addClass('show').to(prompt);
+				common.addClass('show').to(prompt);
 			} else {
-				myapp.removeClass('show').from(prompt);
+				common.removeClass('show').from(prompt);
 			}
 		};
 
@@ -76,20 +76,20 @@
 
 				var overlay = document.querySelector('.overlay');
 
-				myapp.addClass('show').to(overlay);
+				common.addClass('show').to(overlay);
 
 				document.querySelector('form').reset();
 
 				setTimeout(function(){
-					myapp.scrollToId('#');
+					common.scrollToId('#');
 
-					myapp.removeClass('show').from(overlay);
+					common.removeClass('show').from(overlay);
 				}, 2000);
 
 			}
 
 			var xhr = new XMLHttpRequest();
-			xhr.addEventListener("load", xhrCallback, false);
+			common.addEvent(xhr, 'load', xhrCallback);
 			xhr.open("POST", "/api/contact");
 			xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 			xhr.send(JSON.stringify(fields));
@@ -98,7 +98,7 @@
 
 	};
 
-	window.addEventListener('load', function(){
+	common.addEvent(window, 'load', function(){
 
 		// all pages
 		dev_greeting();
