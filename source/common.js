@@ -1,5 +1,6 @@
-// namespace
-var common = {
+var smoothScroll = require('smooth-scroll');
+
+module.exports = {
 
 	addEvent: function addEvent(element, type, callback, capture) {
 		if (element.addEventListener) element.addEventListener(type, callback, capture);

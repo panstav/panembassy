@@ -22,9 +22,15 @@
     "gulp-sitemap": "2.1.1",
     "gulp-uglify": "1.1.0",
     "gulp-util": "3.0.4",
+    "node-libs-browser": "^0.5.2",
     "request-json": "0.5.3",
     "run-sequence": "1.1.0",
-    "shortid": "2.2.2"
+    "shortid": "2.2.2",
+    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll/tarball/v5.3.7",
+    "webpack": "^1.9.12"
+  },
+  "scripts": {
+    "postinstall": "gulp heroku:production"
   },
   "private": true,
   "repository": {

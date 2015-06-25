@@ -4,6 +4,7 @@ var gulp =    require('gulp');
 var plugins = require('gulp-load-plugins')();
 var runSeq = require('run-sequence');
 
+var webpack = require('webpack');
 var shortid = require('shortid');
 
 //-=======================================================---
@@ -11,11 +12,6 @@ var shortid = require('shortid');
 //-=======================================================---
 
 var revision = shortid.generate();
-
-var jsSources = [
-	'source/common.js',
-	'source/index.js'
-];
 
 //-=======================================================---
 //------------------ Executables
@@ -46,7 +42,7 @@ gulp.task('compileSass', function(){
 	return gulp.src('source/global.sass')
 		.pipe(plugins.sass(sassOptions))
 		.pipe(plugins.rename({ basename: 'styles' + (process.env.LOCAL ? '' : ('-' + revision)) }))
-		.pipe(gulp.dest('public/stylesheets'));
+		.pipe(gulp.dest('public'));
 
 });
 
@@ -55,16 +51,8 @@ gulp.task('compileJade', function(){
 	var jadeOptions = { pretty: !!process.env.LOCAL };
 
 	var resources = {
-
-		css:  [
-			'stylesheets/styles' + (process.env.LOCAL ? '' : '-' + revision) + '.css'
-		],
-
-		js:   [
-			'components/smooth-scroll/dist/js/smooth-scroll.min.js',
-			'scripts/scripts' + (process.env.LOCAL ? '' : '-' + revision) + '.js'
-		]
-
+		css: 'styles' + (process.env.LOCAL ? '' : '-' + revision) + '.css',
+		js: 'bundle' + (process.env.LOCAL ? '' : '-' + revision) + '.js'
 	};
 
 	return gulp.src(['source/*/index.jade', '!source/about/index.jade'])
@@ -79,10 +67,20 @@ gulp.task('uglifyJs', function(){
 
 	var uglifier = !process.env.LOCAL ? plugins.uglify : plugins.util.noop;
 
-	return gulp.src(jsSources)
-		.pipe(plugins.concat('scripts' + (process.env.LOCAL ? '' : '-' + revision) + '.js'))
+	return gulp.src('public/bundle.js')
+		.pipe(plugins.rename({ basename: 'bundle' + (process.env.LOCAL ? '' : ('-' + revision)) }))
 		.pipe(uglifier())
-		.pipe(gulp.dest('public/scripts'));
+		.pipe(gulp.dest('public'));
+
+});
+
+gulp.task("webpackJs", function(done) {
+
+	webpack(require("./webpack.config"), function(err, stats){
+		if(err) throw new plugins.util.PluginError("webpack", err);
+
+		done();
+	});
 
 });
 
@@ -111,7 +109,7 @@ gulp.task('sitemap', function(){
 //-=======================================================---
 
 gulp.task('build', function(done){
-	runSeq('uglifyJs', 'compileSass', 'compileJade', done);
+	runSeq('webpackJs', 'uglifyJs', 'compileSass', 'compileJade', done);
 });
 
 gulp.task('local', function(){
