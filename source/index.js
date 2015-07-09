@@ -2,22 +2,7 @@ var common = require('./common');
 
 function dev_greeting(){
 	console.log('Hello there, savvy friend!');
-};
-
-function hire_button_handler(){
-	var toggle = document.querySelector('a.availability');
-
-	common.addEvent(toggle, 'click', function(){
-
-		ga('send', 'event', 'interactions', 'clicked-hire-button');
-
-		if (window.location.pathname === '/'){
-			common.scrollToId('#contact');
-
-		} else {
-			window.location.href = '/#contact'
-		}
-	});
+	console.log('You may find the living source code for this website at: https://github.com/panstav/panembassy');
 };
 
 function form_handler(){
@@ -83,9 +68,9 @@ function contact_form_submission(){
 
 			document.querySelector('form').reset();
 
-			setTimeout(function(){
-				common.scrollToId('#');
+			window.scroll(0, 0);
 
+			setTimeout(function(){
 				common.removeClass('show').from(overlay);
 			}, 2000);
 
@@ -105,7 +90,6 @@ common.addEvent(window, 'load', function(){
 
 	// all pages
 	dev_greeting();
-	hire_button_handler();
 
 	// front-page
 	if (window.location.pathname === '/'){

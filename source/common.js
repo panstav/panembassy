@@ -1,5 +1,3 @@
-var smoothScroll = require('smooth-scroll');
-
 module.exports = {
 
 	addEvent: function addEvent(element, type, callback, capture) {
@@ -38,13 +36,6 @@ module.exports = {
 			}
 		};
 
-	},
-
-	scrollToId: function(id){
-		smoothScroll.animateScroll(null, id, {
-			speed: 500,
-			easing: 'easeInOutCubic'
-		});
 	}
 
 };

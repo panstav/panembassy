@@ -6,71 +6,24 @@ header
 	background-color: rgba($mainBackground, .5)
 	color: white
 	padding:
-		top: .5em
-		bottom: .5em
+		top: 1em
+		bottom: 1em
 
 	body:not(.front) &
 		background-color: rgba($mainBackground, .97)
 		border-bottom: 2px solid darken($mainBackground, 10%)
 
-	@media (min-width: $maxWidth)
-		padding:
-			top: 1em
-			bottom: 1em
+	img.logo, a.home, a.home span
+		vertical-align: middle
 
 	a
 		display: inline-block
 
-a.home, a.home span
-	vertical-align: middle
-
-a.home
-	font-weight: bold
-	text-decoration: none
+	a.home
+		font-weight: bold
+		text-decoration: none
 
 	img.logo
 		width: 3.5em
 		height: auto
-	span
-		display: none
-
-	@media (min-width: $mobile)
-		img.logo
-			display: none
-		span
-			display: inline-block
-			width: 100%
-
-.availability
-	cursor: pointer
-	float: right
-	margin-top: .9em
-	padding: .5em .7em
-	border: 1px solid white
-	border-radius: 5px
-	font-size: .8em
-
-	.full
-		display: none
-
-	@media (min-width: $mobile)
-		margin-top: 0
-
-		.full
-			display: inline-block
-		.short
-			display: none
-
-	&:before
-		margin-right: .5em
-		display: inline-block
-
-	&.positive:before
-		content: ''
-		width: .8em
-		height: .8em
-		border-radius: 100%
-		background-color: #ABFFAB
-	&.negative:before
-		content: 'X'
-		color: #E75D5D
+		margin-right: 1em
