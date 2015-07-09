@@ -1,11 +1,13 @@
-var config = require('./config');
+var config =          require('./config');
 
-var gulp =    require('gulp');
-var plugins = require('gulp-load-plugins')();
-var runSeq = require('run-sequence');
+var gulp =            require('gulp');
+var plugins =         require('gulp-load-plugins')();
+var runSeq =          require('run-sequence');
 
-var webpack = require('webpack');
-var shortid = require('shortid');
+var webpack =         require('webpack');
+var webpackOptions =  require("./webpack.config");
+
+var shortid =         require('shortid');
 
 //-=======================================================---
 //------------------ Setup
@@ -76,7 +78,7 @@ gulp.task('uglifyJs', function(){
 
 gulp.task("webpackJs", function(done) {
 
-	webpack(require("./webpack.config"), function(err, stats){
+	webpack(webpackOptions, function(err, stats){
 		if(err) throw new plugins.util.PluginError("webpack", err);
 
 		done();
