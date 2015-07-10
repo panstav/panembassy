@@ -57,11 +57,18 @@ gulp.task('compileJade', function(){
 		js: 'bundle' + (process.env.LOCAL ? '' : '-' + revision) + '.js'
 	};
 
+	function flattenTree(path){
+		path.basename = path.dirname;
+
+		if (path.dirname === 'front-page') path.basename = 'index';
+
+		path.dirname = '.';
+	}
+
 	return gulp.src(['source/*/index.jade', '!source/about/index.jade'])
-		.pipe(plugins.rename(function(path){ path.basename = path.dirname === 'front-page' ? 'index' : path.dirname; }))
 		.pipe(plugins.jade(jadeOptions))
-		.pipe(plugins.rename(function(path){ path.dirname = '.' }))
 		.pipe(plugins.htmlReplace(resources))
+		.pipe(plugins.rename(flattenTree))
 		.pipe(gulp.dest('public'));
 });
 
